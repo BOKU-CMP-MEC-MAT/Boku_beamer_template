@@ -118,7 +118,7 @@
 \setbeamerfont{footline}{size*={8pt}{8pt},parent=normal text}
 \newcommand\footraise{.9}
 \ifbigfoot
-   \setbeamerfont{footline}{size*={8pt}{8pt},parent=normal text}
+   \setbeamerfont{footline}{size*={9pt}{9pt},parent=normal text}
    \renewcommand\footraise{.4}
 \fi
 \ifsasquatch
@@ -229,7 +229,7 @@
 
 
 %% Setting the header image based on input 'ID'.
-%% Switch/Case, Default is "1" or boku_header1.png.
+%% Switch/Case, Default is "1" or boku_header.png.
 \newcommand{\headerimage}[1]{%
    \IfStrEqCase{#1}{%
       {4}{%
@@ -312,16 +312,17 @@
 \setbeamertemplate{footline}{
 
 \iffooter
-   \begin{beamercolorbox}[wd=\paperwidth,dp=1.3mm]{title in head/foot}
+   \begin{beamercolorbox}[wd=\paperwidth,dp=1.8mm,leftskip=5mm,rightskip=5mm]{title in head/foot}
      \usebeamercolor[fg]{titleline}
-     \hspace{5mm}\hrulefill\hspace{5mm} % offsync like in the corporate design manual
+     \hrulefill % offsync like in the corporate design manual
 
      \usebeamercolor[fg]{structure}
      \ifframelogo
         % Different spacing as the image comes with white margins
-        \hspace{6.5mm}\raisebox{-.10\height}{\includegraphics[width=12mm]{\myfooterlogoimage}}\hspace{1mm}
+        \vspace*{1.0mm}
+        \raisebox{-.10\height}{\includegraphics[height=5.5mm,keepaspectratio]{\myfooterlogoimage}}\hspace{2mm}
      \else
-        \hspace{10mm}
+        \hspace{5mm}
          {\rule[0em]{0pt}{4.5mm}}%
      \fi
      \raisebox{\footraise\height}{{\usebeamerfont{footline}\myfootertext~\insertdate}}
@@ -331,26 +332,24 @@
        \hfill \raisebox{\footraise\height}{{\usebeamerfont{footline} \selectfont\insertframenumber/\inserttotalframenumber}}
      \fi
      \iflicenseall
-        \raisebox{.15\height}{\hspace{1mm}\includegraphics[width=5mm]{license_ccby}\hspace{10mm}}
-     \else
-        \hspace{10mm}
+        \raisebox{.52\height}{\hspace{1mm}\includegraphics[width=5mm]{license_ccby}}
      \fi
    \end{beamercolorbox}
 \else
    \ifsn
-      \begin{beamercolorbox}[wd=\paperwidth,dp=0.2cm]{title in head/foot}%
+      \begin{beamercolorbox}[wd=\paperwidth,dp=2mm,rightskip=4mm]{title in head/foot}%
          \usebeamercolor[fg]{structure}
-         \vspace{0.2cm}
+         \vspace{2mm}
          \ifnototalframenumber
-            \hfill \insertframenumber\hspace{0.4cm}
+            \hfill \insertframenumber
          \else
-            \hfill \insertframenumber/\inserttotalframenumber\hspace{0.8cm}
+            \hfill \insertframenumber/\inserttotalframenumber\hspace{4mm}
          \fi
       \end{beamercolorbox}
    \else
-      \begin{beamercolorbox}[wd=\paperwidth,dp=0.2cm]{title in head/foot}%
+      \begin{beamercolorbox}[wd=\paperwidth,dp=2mm]{title in head/foot}%
          \usebeamercolor[fg]{structure}
-         \vspace{0.2cm}
+         \vspace{2mm}
          \vspace{\baselineskip}
       \end{beamercolorbox}
    \fi
@@ -377,23 +376,8 @@
 \RequirePackage{amsmath,amssymb}
 \RequirePackage{array}
 
-% \definecolor{bokugreen}{cmyk}{1,0.6,0,0.65}%
-\definecolor{bokupurple}{RGB}{75,40,140}%
-% \definecolor{bokupurplel}{RGB}{184, 169, 210}%
-% \definecolor{bokupurplel}{RGB}{200, 190, 220}%
-\definecolor{bokupurplel}{RGB}{219, 211, 232}%
-% \definecolor{bokugreenl}{rgb}{0.89,0.94,1.00}%
-
-\definecolor{bokugreen}{RGB}{0, 170, 90}%
-\definecolor{bokugreenl}{RGB}{154, 221, 188}%
-
-\definecolor{bokuorange}{RGB}{230, 100, 30}%
-\definecolor{bokuorangel}{RGB}{247, 208, 186}%
-
-\definecolor{bokugray}{cmyk}{0,0,0,0.9}%
-\definecolor{bokugraym}{cmyk}{0,0,0,0.6}%
-\definecolor{bokugrayl}{cmyk}{0,0,0,0.2}%
-\definecolor{gray80}{cmyk}{0,0,0,.8}%
+% BOKU colors corresponding to corporate design
+\usepackage{boku-colors}
 
 % Fix broken symbols
 % (I don't know why, but some symbols do not work correctly)
@@ -444,7 +428,8 @@
     \node[xshift=2.5mm,yshift=-2.5mm] at (current page.north west) {
     	% Ignore title page logo on all title slides which are not slide 1
     	\ifnum\theframenumber=1
-    	\includegraphics[width=32.1mm]{\mylogoimage}%
+    	%\includegraphics[width=32.1mm]{\mylogoimage}%
+            \includegraphics[height=16mm,keepaspectratio]{\mylogoimage}%
     	\fi
     };
     
@@ -463,7 +448,7 @@
     		};%
     	}{nw}{
     	\node[xshift=-1mm,yshift=-21mm] at (current page.north west) {%
-    		\includegraphics[width=162mm, trim=0 2cm 0 2cm, clip]{\myheaderimage}%
+    		\includegraphics[width=162mm, trim=0 20mm 0 20mm, clip]{\myheaderimage}%
     	};%
     }}
     \end{tikzpicture}
@@ -525,6 +510,7 @@
 %empty page with only name of subsection at start of each subsection - for long talks where the structure helps
 \ifsectionintroframe
     \AtBeginSection[]{
+        % set background image to given file
         \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{titlebackground.pdf}}
         {\setbeamertemplate{footline}{}
         \begin{frame}
@@ -540,6 +526,7 @@
             \end{center}
         \end{frame}}
         \addtocounter{framenumber}{-1}
+        % reset background image
         \usebackgroundtemplate{}
     }
 \else
@@ -663,4 +650,3 @@
 \URL{}
 \footertext{}
 \date{}
-

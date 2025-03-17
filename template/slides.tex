@@ -1,7 +1,11 @@
 %% Begin slides template file
 \pdfminorversion=4
-\documentclass[11pt,t,usepdftitle=false,aspectratio=169, 
-% handout
+\documentclass[
+    11pt,
+    t,
+    usepdftitle=false,
+    aspectratio=169,
+    %handout
 ]{beamer}
 \usepackage{pgfpages}
 % \pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm, landscape]
@@ -28,9 +32,12 @@
 %% can be used for e.g., highlighting something. Simply use
 %% \color{bokupurple} or \begin{color}{bokupurple} ... \end{color}
 %% Defined colors are:
-%% - bokugreen, bokugreenl, bokupurple, bokupurplel, bokugray, bokugraym, bokugrayl
+%% - bokugreen, bokugreenm, bokugreenl,
+%% - bokupurple, bokupurplem, bokupurplel,
+%% - bokuorange, bokuorangem, bokuorangel,
+%% - bokublack, bokugray, bokugraym, bokugrayl
 %% The frametitle color can be easily adjusted e.g., to black with
-%% \setbeamercolor{titlelike}{fg=black}
+%% \setbeamercolor{titlelike}{fg=bokublack}
 %% ------------------------------------------------------------------
 
 %\setbeamercolor{verbcolor}{fg=bokupurple}
@@ -62,18 +69,19 @@
 %\setbeamerfont{url}{size*={10pt}{10pt},series=\mdseries}
 %\URL{}
 %\subtitle{}
-\footertext{\textbf{\color{bokugreen} \LaTeX \ Beamer Template}\hspace{.2cm}|\hspace{.2cm} Abbreviated title}
+\footertext{\textbf{\color{bokugreen} \LaTeX \ Beamer Template} \hspace{2mm} $\mid$ \hspace{2mm} Abbreviated title}
 
 %\footertext{{\LaTeX} beamer theme}
 %\date{2017-07-25}
 
-\headerimage{1}
 %% ------------------------------------------------------------------
 %% The theme offers four different header images based on the
-%% corporate design of the university of innsbruck. Currently
-%% 1, 2, 3 and 4 is allowed as input to \headerimage{...}. Default
-%% or fallback is '1'.
+%% corporate design of the BOKU university. Currently
+%% 1 is allowed as input to \headerimage{...}. Default
+%% or fallback is '1'. There will be additional headers available soon
 %% ------------------------------------------------------------------
+\headerimage{1}
+
 \usepackage{siunitx}
 \usepackage{relsize}
 %\usepackage{amsmath}
@@ -104,8 +112,9 @@ doi=false
 \addbibresource{bib.bib}
 
 \newcommand{\sectionFrame}[1]{
-    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{_images/boku_header_lower.png}}
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth,clip,trim=0mm 20mm 0mm 20mm]{\myheaderimage}}
     \begin{frame}[c, plain, noframenumbering]{}
+        \bigskip
         % \centering
         \begin{center}%
             \LARGE%
@@ -180,38 +189,39 @@ doi=false
 \begin{frame}[plain]
     \titlepage
 \end{frame}
+
 % \addtocounter{framenumber}{-1}
-% \usebackgroundtemplate{}}
+% \usebackgroundtemplate{}
 
-%\section{Section 1}
-%\sectionFrame{Part I -- Introduction}
+% \section{Section 1}
+% \sectionFrame{Part I -- Introduction}
 
 
-%\begin{frame}
+% \begin{frame}
 %    \vspace*{1cm plus 1fil}
 %    \tableofcontents
 %    \vspace*{0cm plus 1fil}
-%\end{frame}
+% \end{frame}
 
-%\begin{frame}[t]
+% \begin{frame}[t]
 %    \frametitle{Frametitle}
 %    \only<1|handout:1>{%
 %    \centering%
 %    \begin{itemize}
 %        \item itemize
 %        \begin{itemize}
-%            \item[\Rightarrow] itemize ...
+%            \item[$\Rightarrow$] itemize ...
 %        \end{itemize}
 %    \end{itemize}
 %    \begin{figure}
 %        \centering
-%        \includegraphics[width=0.5\linewidth]{template/_images/BOKU_Hauptlogo_CMYK.pdf}
+%        \includegraphics[width=32.1mm]{\mylogoimage}
 %        \caption{template figure}
 %        \label{fig:template}
 %    \end{figure}
 %    }
-%\end{frame}
-%
+% \end{frame}
+
 \begin{frame}
 \frametitle{Introduction}
    \textbf{Itemized lists:}
@@ -246,16 +256,26 @@ doi=false
    \textbf{Predefined colors:}
    
    \smallskip
-   
-   \fcolorbox{black}{bokugreen}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad green (\verb|bokugreen|) \\[1mm]
-   \fcolorbox{black}{bokugreenl}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad light green (\verb|bokugreenl|) \\[1mm]
-   \fcolorbox{black}{bokuorange}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad orange (\verb|bokuorange|) \\[1mm]
-   \fcolorbox{black}{bokuorangel}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad light orange (\verb|bokuorangel|) \\[1mm]
-   \fcolorbox{black}{bokupurple}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad purple (\verb|bokupurple|) \\[1mm]
-   \fcolorbox{black}{bokupurplel}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad light purple (\verb|bokupurplel|) \\[1mm]
-   \fcolorbox{black}{bokugray}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad gray (\verb|bokugray|) \\[1mm]
-   \fcolorbox{black}{bokugraym}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad medium gray (\verb|bokugraym|) \\[1mm]
-   \fcolorbox{black}{bokugrayl}{\rule{0pt}{.6em}\rule{.5em}{0pt}} \quad light gray (\verb|bokugrayl|)
+
+   \begin{columns}
+   \begin{column}{0.5\textwidth}
+   \fcolorbox{black}{bokugreen}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad cool green (\verb|bokugreen|) \\[1mm]
+   \fcolorbox{black}{bokugreenm}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad medium green (\verb|bokugreenm|) \\[1mm]
+   \fcolorbox{black}{bokugreenl}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad light green (\verb|bokugreenl|) \\[1mm]
+   \fcolorbox{black}{bokuorange}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad apricot orange (\verb|bokuorange|) \\[1mm]
+   \fcolorbox{black}{bokuorangem}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad medium orange (\verb|bokuorangem|) \\[1mm]
+   \fcolorbox{black}{bokuorangel}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad light orange (\verb|bokuorangel|) \\[1mm]
+   \fcolorbox{black}{bokupurple}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad grape purple (\verb|bokupurple|) \\[1mm]
+   \fcolorbox{black}{bokupurplem}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad medium purple (\verb|bokupurplem|) \\[1mm]
+   \fcolorbox{black}{bokupurplel}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad light purple (\verb|bokupurplel|) \\[1mm]
+   \end{column}
+   \begin{column}{0.5\textwidth}
+   \fcolorbox{black}{bokublack}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad earth black (\verb|bokublack|) \\[1mm]
+   \fcolorbox{black}{bokugray}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad gray (\verb|bokugray|) \\[1mm]
+   \fcolorbox{black}{bokugraym}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad medium gray (\verb|bokugraym|) \\[1mm]
+   \fcolorbox{black}{bokugrayl}{\rule{0pt}{.6em}\rule{.6em}{0pt}} \quad light gray (\verb|bokugrayl|)
+   \end{column}
+   \end{columns}
 
 \end{frame}
 %
@@ -310,11 +330,10 @@ doi=false
 \begin{frame}[plain]
     \begin{tikzpicture}[remember picture,overlay,anchor=north west,inner sep=0pt]
         \node[xshift=2.5mm,yshift=-2.5mm] at (current page.north west) {
-    	   \includegraphics[width=32.1mm]{template/_images/BOKU_Hauptlogo_CMYK.pdf}%
+    	   \includegraphics[width=32.1mm]{\mylogoimage}%
         };
     \end{tikzpicture}
     \titlepage
 \end{frame}
 
 \end{document}
-
