@@ -1,15 +1,22 @@
 \IfPackageLoadedTF{xcolor}{}{\RequirePackage{xcolor}}
-\definecolor{bokupurple}{RGB}{75,40,140}%
-\definecolor{bokupurplem}{RGB}{184, 169, 210}%
-\definecolor{bokupurplel}{RGB}{219, 211, 232}%
 
 \definecolor{bokugreen}{RGB}{0, 170, 90}%
-\definecolor{bokugreenm}{RGB}{154, 221, 188}%
-\definecolor{bokugreenl}{RGB}{205, 235, 222}%
+%\definecolor{bokugreenm}{RGB}{154, 221, 188}%
+\colorlet{bokugreenm}{bokugreen!60}
+%\definecolor{bokugreenl}{RGB}{205, 235, 222}%
+\colorlet{bokugreenl}{bokugreen!30}
 
 \definecolor{bokuorange}{RGB}{230, 100, 30}%
-\definecolor{bokuorangem}{RGB}{244, 193, 165}%
-\definecolor{bokuorangel}{RGB}{248, 223, 211}%
+%\definecolor{bokuorangem}{RGB}{244, 193, 165}%
+\colorlet{bokuorangem}{bokuorange!60}
+%\definecolor{bokuorangel}{RGB}{248, 223, 211}%
+\colorlet{bokuorangel}{bokuorange!30}
+
+\definecolor{bokupurple}{RGB}{75,40,140}%
+%\definecolor{bokupurplem}{RGB}{184, 169, 210}%
+\colorlet{bokupurplem}{bokupurple!60}
+%\definecolor{bokupurplel}{RGB}{219, 211, 232}%
+\colorlet{bokupurplel}{bokupurple!30}
 
 \definecolor{bokublack}{cmyk}{0,0,0,1}%
 \definecolor{bokugray}{cmyk}{0,0,0,0.9}%
