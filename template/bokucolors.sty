@@ -1,4 +1,20 @@
-\IfPackageLoadedTF{xcolor}{}{\RequirePackage{xcolor}}
+%%
+%% This is file `bokucolors.sty',
+%% eine Sammlung persönlicher Farben für das BOKU-Design.
+%%
+%% Autor: Marco Kendlbacher (mcoken@hotmail.com)
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bokucolors}[%
+  2026/07/10 v1.0 Persönliche Farben
+  entsprechend des BOKU-Corporate-Design%
+]
+
+%% Alle Optionen an xcolor weiterreichen, z.B. \usepackage[dvipsnames]{bokucolors}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{xcolor}}
+\ProcessOptions\relax
+
+\RequirePackage{xcolor}
 
 \definecolor{bokugreen}{RGB}{0, 170, 90}%
 %\definecolor{bokugreenm}{RGB}{154, 221, 188}%
@@ -18,8 +34,11 @@
 %\definecolor{bokupurplel}{RGB}{219, 211, 232}%
 \colorlet{bokupurplel}{bokupurple!30}
 
+\definecolor{bokublue}{RGB}{0,110,171}
+\definecolor{bokulila}{RGB}{145,65,150}
+
 \definecolor{bokublack}{cmyk}{0,0,0,1}%
 \definecolor{bokugray}{cmyk}{0,0,0,0.9}%
 \definecolor{bokugraym}{cmyk}{0,0,0,0.6}%
 \definecolor{bokugrayl}{cmyk}{0,0,0,0.2}%
-\definecolor{gray80}{cmyk}{0,0,0,0.8}%
+\definecolor{bokugray80}{cmyk}{0,0,0,0.8}%
