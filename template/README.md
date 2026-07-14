@@ -6,12 +6,12 @@ This template can be used to create presentations to be held for or at BOKU univ
 The following files and folders are present:
 - **_images/**: folder where header images for titlepage and section pages are located
 - **beamerthemeboku.sty**: styling package for usage as beamer theme
-- **boku-colors.sty**: contains color definition corresponding to corporate design of BOKU
+- **bokucolors.sty**: contains color definition corresponding to corporate design of BOKU
 - **slides.tex**: this is the main file where the slides (frames) are defined
 - **slides_16-9.pdf** / **slides_4-3.pdf**: showcase of presentation slides in 16:9 and 4:3 format, respectively
 
 ## Compilation process  
-To get the compilation process correct one has to run `pdflatex` and `biblatex`/`biber` in an appropriate amount to ensure correct *.pdf* creation and get proper linking.
+To get the compilation process correct one has to run `pdflatex` once, then `biber` (as backend for `biblatex`) once and again two times `pdflatex` to ensure correct *.pdf* creation and get proper linking.
 One can also use the `latexmk`-command in following forms:
 - `latexmk -pdf`: compiles all *.tex* files
 - `latexmk -pdf -pv`: as before and additionally opens a preview of the *.pdf*
