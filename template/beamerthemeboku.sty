@@ -232,15 +232,17 @@
 %% Switch/Case, Default is "1" or boku_header.png.
 \newcommand{\headerimage}[1]{%
    \IfStrEqCase{#1}{%
-      {4}{%
-         \gdef\myheaderimageid{#1}%
-         \gdef\myheaderimageposition{ne}%
-         \gdef\myheaderimage{boku_header4.png}%
-      }{3}{%
-         \gdef\myheaderimageid{#1}%
-         \gdef\myheaderimageposition{ne}%
-         \gdef\myheaderimage{boku_header3.png}%
-      }{2}{%
+      % {4}{%
+      %    \gdef\myheaderimageid{#1}%
+      %    \gdef\myheaderimageposition{ne}%
+      %    \gdef\myheaderimage{boku_header4.png}%
+      % }
+      % {3}{%
+      %    \gdef\myheaderimageid{#1}%
+      %    \gdef\myheaderimageposition{ne}%
+      %    \gdef\myheaderimage{boku_header3.png}%
+      % }
+      {2}{%
          \gdef\myheaderimageid{#1}%
          \gdef\myheaderimageposition{nw}%
          \gdef\myheaderimage{boku_header2.png}%
@@ -248,7 +250,6 @@
          \gdef\myheaderimageid{1}%
          \gdef\myheaderimageposition{nw}%
          \gdef\myheaderimage{boku_header.png}%
-         %\gdef\myheaderimage{boku_header_lower.png}%
       ]%
 }
 
@@ -377,7 +378,11 @@
 \RequirePackage{array}
 
 % BOKU colors corresponding to corporate design
-\usepackage{bokucolors}
+\IfFileExists{bokucolors.sty}{%
+   \usepackage{bokucolors}
+}{%
+   \usepackage{boku-colors}
+}
 
 % Fix broken symbols
 % (I don't know why, but some symbols do not work correctly)
@@ -644,9 +649,9 @@
 
 %% defaults
 \headerimage{1}
-\logoimage{BOKU_Hauptlogo_CMYK}
+\logoimage{BOKU_Hauptlogo_CMYK.pdf}
 \setfacultycolors{none}
-\footerlogoimage{BOKU_Hauptlogo_CMYK}
+\footerlogoimage{BOKU_Hauptlogo_CMYK.pdf}
 \URL{}
 \footertext{}
 \date{}
